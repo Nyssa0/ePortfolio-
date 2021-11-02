@@ -65,7 +65,7 @@ liens en savoir plus
                     <a href="../competences/competences.php">Compétences</a>
                 </li>
                 <li class="nav__listitem">
-                    <a href="../charity/charity.php">Engagement associatif</a>
+                    <a href="../charity/charity.html">Engagement associatif</a>
                 </li>
                 <li class="nav__listitem">
                     <a href="../interests/interests.php">Centres d'intérêts</a>
