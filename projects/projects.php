@@ -20,7 +20,7 @@
                     <img alt="logo" src="https://static.wixstatic.com/media/51e30d_d51e9a7675b14fec9050c17c133eb4e4~mv2.gif"/>
                 </li>
                 <li class="nav__listitem">
-                    <a href="../home/index.html">Accueil</a>
+                    <a href="../index.html">Accueil</a>
                 </li>
                 <li class="nav__listitem">
                     <a href="../edu/edu.php">Parcours scolaire</a>
