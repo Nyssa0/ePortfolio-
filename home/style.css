@@ -1,0 +1,349 @@
+/*   color variables */
+/*   border radius */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Exo", sans-serif;
+}
+
+section {
+  background-color: #fce4ec;
+  height: 100%;
+}
+
+.grille {
+  max-width: 1000px;
+  background-color: white;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr) 0.25fr;
+  grid-template-areas: "banner" "edu" "projects" "pro" "charity" "interest" "footer";
+}
+.grille .nav {
+  position: fixed;
+  box-shadow: 0 0 16px #fce4ec;
+  height: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: top 0.8s;
+  background: white;
+  z-index: 2;
+}
+.grille .nav__list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 2rem;
+  height: 100px;
+}
+.grille .nav__listlogo {
+  list-style: none;
+  margin-right: auto;
+  cursor: pointer;
+}
+.grille .nav__listlogo img {
+  width: 100px;
+  transition: fill 250ms ease-in;
+}
+.grille .nav__listlogo img:hover, .grille .nav__listlogo img:focus {
+  fill: #f06292;
+}
+.grille .nav__listitem {
+  list-style: none;
+  font-weight: bold;
+  position: relative;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+}
+.grille .nav__listitem a {
+  text-decoration: none;
+  color: black;
+}
+.grille .nav__listitem::after {
+  content: "";
+  width: 0;
+  height: 0.3rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  left: 1rem;
+  bottom: 0.8rem;
+  background-color: #f06292;
+  transition: width 200ms ease-in;
+}
+.grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
+  width: 80%;
+}
+.grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
+  opacity: 1;
+  visibility: visible;
+}
+.grille .nav__listitemdrop {
+  position: absolute;
+  top: 4rem;
+  left: -1rem;
+  box-shadow: 0 0 10px #e1e5ee;
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 12rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease-in-out;
+}
+.grille .nav__listitemdrop li {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+}
+.grille .nav__listitemdrop li:hover, .grille .nav__listitemdrop li:focus {
+  background-color: #fce4ec;
+}
+.grille .item {
+  height: 100%;
+}
+.grille .banner {
+  background-color: white;
+  grid-area: banner;
+  width: 100%;
+  margin-top: 100px;
+}
+.grille .banner img {
+  width: 100%;
+  height: auto;
+}
+.grille .banner .text-wrapper {
+  width: 100%;
+  margin-top: -45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.grille .banner .text-wrapper h1 {
+  text-align: center;
+  color: #f06292;
+  font-size: 32px;
+}
+.grille .banner .text-wrapper h2 {
+  text-align: center;
+  color: #f06292;
+  font-size: 24px;
+}
+.grille .banner .text-wrapper #logo {
+  width: 100px;
+  text-align: center;
+}
+.grille .edu {
+  background-color: white;
+  grid-area: edu;
+}
+.grille .edu .left {
+  background: url(images/edu.jpg) no-repeat center/cover;
+}
+.grille .edu .container, .grille .pro .container, .grille .interest .container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grille .edu .left, .grille .pro .left, .grille .interest .left {
+  width: 50%;
+  height: 600px;
+  border-radius: 0.5rem;
+}
+.grille .edu .right, .grille .pro .right, .grille .interest .right {
+  width: 50%;
+  min-height: 400px;
+  background-color: #fce4ec;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  color: #ec407a;
+  margin-left: -100px;
+}
+.grille .edu .right h1, .grille .pro .right h1, .grille .interest .right h1 {
+  font-size: 40px;
+}
+.grille .edu .right p, .grille .pro .right p, .grille .interest .right p {
+  margin: 20px;
+  line-height: 25px;
+}
+.grille .edu .right a, .grille .pro .right a, .grille .interest .right a {
+  text-decoration: none;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+.grille .edu .right a:hover, .grille .pro .right a:hover, .grille .interest .right a:hover {
+  background-color: #f06292;
+  color: #fce4ec;
+  transition: 0.5s;
+}
+@media only screen and (max-width: 768px) {
+  .grille .edu .container, .grille .pro .container, .grille .interest .container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 20px;
+  }
+  .grille .edu .left, .grille .pro .left, .grille .interest .left {
+    width: 100%;
+  }
+  .grille .edu .right, .grille .pro .right, .grille .interest .right {
+    width: 80%;
+    margin: 0;
+    margin-top: -100px;
+  }
+}
+.grille .container {
+  background-color: white;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grille .projects {
+  grid-area: projects;
+}
+.grille .projects .right {
+  background: url(images/projet.jpg) no-repeat center/cover;
+}
+.grille .projects .container, .grille .charity .container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.grille .projects .right, .grille .charity .right {
+  width: 50%;
+  height: 600px;
+  border-radius: 0.5rem;
+  z-index: 0;
+}
+.grille .projects .left, .grille .charity .left {
+  width: 50%;
+  min-height: 400px;
+  background-color: #fce4ec;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  color: #ec407a;
+  margin-right: -100px;
+  z-index: 1;
+}
+.grille .projects .left h1, .grille .charity .left h1 {
+  font-size: 40px;
+}
+.grille .projects .left p, .grille .charity .left p {
+  margin: 20px;
+  line-height: 25px;
+}
+.grille .projects .left a, .grille .charity .left a {
+  text-decoration: none;
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+.grille .projects .left a:hover, .grille .charity .left a:hover {
+  background-color: #f06292;
+  color: #fce4ec;
+  transition: 0.5s;
+}
+@media only screen and (max-width: 768px) {
+  .grille .projects .container, .grille .charity .container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 20px;
+  }
+  .grille .projects .right, .grille .charity .right {
+    width: 100%;
+  }
+  .grille .projects .left, .grille .charity .left {
+    width: 80%;
+    margin: 0;
+    margin-top: -100px;
+  }
+}
+.grille .pro {
+  grid-area: pro;
+}
+.grille .pro .left {
+  background: url(images/pro.jpg) no-repeat center/cover;
+}
+.grille .charity {
+  grid-area: charity;
+}
+.grille .charity .right {
+  background: url(images/charity.jpg) no-repeat center/cover;
+}
+.grille .interest {
+  grid-area: interest;
+}
+.grille .interest .left {
+  background: url(images/interet.jpg) no-repeat center/cover;
+}
+.grille footer {
+  background-color: #fce4ec;
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.grille footer img {
+  width: 50px;
+}
+.grille footer #in {
+  width: 16px;
+}
+.grille footer h3, .grille footer p {
+  padding: 5px;
+}
+
+.mention {
+  background-color: #f06292;
+  text-align: center;
+  font-style: italic;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav.animate {
+  top: -110px;
+}
+
+.nav.sticky {
+  top: 0;
+  z-index: 990;
+}
+
+.content a {
+  color: #f06292;
+}
+
+/*# sourceMappingURL=style.css.map */

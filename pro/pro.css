@@ -1,0 +1,212 @@
+/*   color variables */
+/*   border radius */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Exo", sans-serif;
+}
+
+section {
+  background-color: #fce4ec;
+  height: 100%;
+}
+
+.grille {
+  max-width: 1000px;
+  background-color: white;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2.5fr 0.25fr;
+  grid-template-areas: "titre" "table" "footer";
+}
+.grille .nav {
+  position: fixed;
+  box-shadow: 0 0 16px #fce4ec;
+  height: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: top 0.8s;
+  background: white;
+  z-index: 2;
+}
+.grille .nav__list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 2rem;
+  height: 100px;
+}
+.grille .nav__listlogo {
+  list-style: none;
+  margin-right: auto;
+  cursor: pointer;
+}
+.grille .nav__listlogo img {
+  width: 100px;
+  transition: fill 250ms ease-in;
+}
+.grille .nav__listlogo img:hover, .grille .nav__listlogo img:focus {
+  fill: #f06292;
+}
+.grille .nav__listitem {
+  list-style: none;
+  font-weight: bold;
+  position: relative;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+}
+.grille .nav__listitem a {
+  text-decoration: none;
+  color: black;
+}
+.grille .nav__listitem::after {
+  content: "";
+  width: 0;
+  height: 0.3rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  left: 1rem;
+  bottom: 0.8rem;
+  background-color: #f06292;
+  transition: width 200ms ease-in;
+}
+.grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
+  width: 80%;
+}
+.grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
+  opacity: 1;
+  visibility: visible;
+}
+.grille .nav__listitemdrop {
+  position: absolute;
+  top: 4rem;
+  left: -1rem;
+  box-shadow: 0 0 10px #e1e5ee;
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 12rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease-in-out;
+}
+.grille .nav__listitemdrop li {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+}
+.grille .nav__listitemdrop li:hover, .grille .nav__listitemdrop li:focus {
+  background-color: #fce4ec;
+}
+.grille footer {
+  background-color: #fce4ec;
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.grille footer img {
+  width: 50px;
+}
+.grille footer #in {
+  width: 16px;
+}
+.grille footer h3, .grille footer p {
+  padding: 5px;
+  color: black;
+}
+
+.titre {
+  margin-top: 100px;
+  width: 100%;
+  height: 200px;
+  grid-area: titre;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #f06292;
+  font-size: 32px;
+  background-color: #fce4ec;
+}
+.titre h1 {
+  font-size: 32px;
+}
+.titre p {
+  font-size: 20px;
+}
+
+.mention {
+  background-color: #f06292;
+  grid-area: mention;
+  text-align: center;
+  font-style: italic;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav.animate {
+  top: -110px;
+}
+
+.nav.sticky {
+  top: 0;
+  z-index: 990;
+}
+
+table {
+  border-radius: 0.5rem;
+  padding: 10px;
+  grid-area: table;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 200px;
+  border: 1px solid #f06292;
+  box-shadow: 2px 2px 12px #fce4ec, -1px -1px 8px #fce4ec;
+}
+table #table-header {
+  background-color: #f06292;
+  color: black;
+}
+table tr {
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  background-color: #fce4ec;
+}
+table tr:hover {
+  background-color: #f06292;
+  transform: scale(1.02);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+table th, table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #fce4ec;
+}
+
+@media only screen and (max-width: 768px) {
+  table {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=pro.css.map */

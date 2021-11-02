@@ -1,0 +1,260 @@
+/*   color variables */
+$clr-primary: #f06292;
+$clr-primary-hover: #fce4ec;
+$clr-primary-dark: #ec407a;
+$clr-gray100: #f9fbff;
+$clr-gray150: #f4f6fb;
+$clr-gray200: #eef1f6;
+$clr-gray300: #e1e5ee;
+$clr-gray400: #767b91;
+$clr-gray500: #4f546c;
+$clr-gray600: #2a324b;
+$clr-gray700: #161d34;
+
+/*   border radius */
+$radius: 0.5rem;
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Exo', sans-serif;
+}
+
+section {
+  background-color: $clr-primary-hover;
+  height: 100%;
+
+}
+
+.grille {
+  max-width: 1000px;
+  background-color: white;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2.5fr 0.25fr;
+  grid-template-areas:
+    "titre"
+    "table"
+    "footer";
+
+  .nav {
+    position: fixed;
+    box-shadow: 0 0 16px $clr-primary-hover;
+    height: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transition: top 0.8s;
+    background: white;
+    z-index: 2;
+
+    &__list {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2rem;
+      margin: 0 2rem;
+      height: 100px;
+
+      &logo {
+        list-style: none;
+        margin-right: auto;
+        cursor: pointer;
+
+        img {
+          width: 100px;
+          transition: fill 250ms ease-in;
+
+          &:hover,
+          &:focus {
+            fill: $clr-primary;
+          }
+        }
+      }
+
+      &item {
+        list-style: none;
+        font-weight: bold;
+        position: relative;
+        padding: 1.5rem 1rem;
+        cursor: pointer;
+
+        a{
+          text-decoration: none;
+          color: black;
+        }
+
+        &::after {
+          content: "";
+          width: 0;
+          height: 0.3rem;
+          border-radius: $radius;
+          position: absolute;
+          left: 1rem;
+          bottom: 0.8rem;
+          background-color: $clr-primary;
+          transition: width 200ms ease-in;
+        }
+
+        &:hover::after,
+        &:focus::after {
+          width: 80%;
+        }
+
+        &:hover ul,
+        &:focus ul {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &drop {
+          position: absolute;
+          top: 4rem;
+          left: -1rem;
+          box-shadow: 0 0 10px $clr-gray300;
+          background-color: white;
+          border-radius: $radius;
+          width: 12rem;
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 200ms ease-in-out;
+
+          li {
+            list-style: none;
+            padding: 0.5rem 1rem;
+            border-radius: $radius;
+            transition: background-color 200ms ease-in-out;
+
+            &:hover,
+            &:focus {
+              background-color: $clr-primary-hover;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer{
+    background-color: $clr-primary-hover;
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img{
+      width: 50px;
+    }
+    #in{
+      width: 16px;
+    }
+    h3,p{
+      padding: 5px;
+      color: black;
+    }
+
+  }
+
+}
+
+.titre{
+  margin-top: 100px;
+  width: 100%;
+  height: 200px;
+  grid-area: titre;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $clr-primary;
+  font-size: 32px;
+  background-color: $clr-primary-hover;
+
+  h1{
+    font-size: 32px;
+  }
+
+  p{
+    font-size: 20px;
+  }
+
+}
+
+.mention{
+  background-color: $clr-primary;
+  grid-area: mention;
+  text-align: center;
+  font-style: italic;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav.animate{
+  top: -110px;
+}
+
+.nav.sticky{
+  top: 0;
+  z-index: 990;
+}
+
+table{
+  border-radius: $radius;
+  padding: 10px;
+  grid-area: table;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 200px;
+  border: 1px solid $clr-primary;
+  box-shadow: 2px 2px 12px $clr-primary-hover, -1px -1px 8px $clr-primary-hover;
+
+  #table-header{
+    background-color: $clr-primary;
+    color: black;
+  }
+
+  tr{
+    transition: all .2s ease-in;
+    cursor: pointer;
+    background-color: $clr-primary-hover;
+
+    &:hover{
+      background-color: $clr-primary;
+      transform: scale(1.02);
+      box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2);
+
+    }
+  }
+
+
+  th,td{
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid $clr-primary-hover;
+  }
+
+}
+
+@media only screen and (max-width: 768px){
+  table{
+    width: 90%;
+  }
+
+}

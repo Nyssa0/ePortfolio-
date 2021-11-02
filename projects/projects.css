@@ -1,0 +1,304 @@
+/*   color variables */
+/*   border radius */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Exo", sans-serif;
+}
+
+section {
+  background-color: #fce4ec;
+  height: 10000px;
+}
+
+.grille {
+  max-width: 1000px;
+  background-color: white;
+  height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(13, 1fr) 0.25fr;
+  gap: 2%;
+  grid-template-areas: "titre titre" "item1 item2" "item3 item4" "item5 item6" "item7 item8" "item9 item10" "item11 item12" "item13 item14" "item15 item16" "item17 item18" "item19 item20" "item21 item22" "item23 item24" "footer footer";
+}
+.grille .nav {
+  position: fixed;
+  box-shadow: 0 0 16px #fce4ec;
+  height: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transition: top 0.8s;
+  background: white;
+  z-index: 2;
+}
+.grille .nav__list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 2rem;
+  height: 100px;
+}
+.grille .nav__listlogo {
+  list-style: none;
+  margin-right: auto;
+  cursor: pointer;
+}
+.grille .nav__listlogo img {
+  width: 100px;
+  transition: fill 250ms ease-in;
+}
+.grille .nav__listlogo img:hover, .grille .nav__listlogo img:focus {
+  fill: #f06292;
+}
+.grille .nav__listitem {
+  list-style: none;
+  font-weight: bold;
+  position: relative;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+}
+.grille .nav__listitem a {
+  text-decoration: none;
+  color: black;
+}
+.grille .nav__listitem::after {
+  content: "";
+  width: 0;
+  height: 0.3rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  left: 1rem;
+  bottom: 0.8rem;
+  background-color: #f06292;
+  transition: width 200ms ease-in;
+}
+.grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
+  width: 80%;
+}
+.grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
+  opacity: 1;
+  visibility: visible;
+}
+.grille .nav__listitemdrop {
+  position: absolute;
+  top: 4rem;
+  left: -1rem;
+  box-shadow: 0 0 10px #e1e5ee;
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 12rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease-in-out;
+}
+.grille .nav__listitemdrop li {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 200ms ease-in-out;
+}
+.grille .nav__listitemdrop li:hover, .grille .nav__listitemdrop li:focus {
+  background-color: #fce4ec;
+}
+.grille .item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.grille h2, .grille p {
+  color: #f06292;
+  padding: 30px 30px 30px 30px;
+}
+.grille .item {
+  text-align: center;
+  height: 490px;
+  width: 490px;
+}
+.grille .item a {
+  color: #f06292;
+  text-decoration: none;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 0.5rem;
+  display: inline-block;
+}
+.grille .item a:hover {
+  background-color: #f06292;
+  color: #fce4ec;
+  transition: 0.5s;
+}
+.grille .item1 {
+  background-color: white;
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+.grille .item2 {
+  background-color: #fce4ec;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.grille .item3 {
+  background-color: #fce4ec;
+  grid-area: item3;
+}
+.grille .item4 {
+  background-color: white;
+  grid-area: item4;
+}
+.grille .item5 {
+  background-color: white;
+  grid-area: item5;
+}
+.grille .item6 {
+  background-color: #fce4ec;
+  grid-area: item6;
+}
+.grille .item7 {
+  background-color: #fce4ec;
+  grid-area: item7;
+}
+.grille .item8 {
+  background-color: white;
+  grid-area: item8;
+}
+.grille .item9 {
+  background-color: white;
+  grid-area: item9;
+}
+.grille .item10 {
+  background-color: #fce4ec;
+  grid-area: item10;
+}
+.grille .item11 {
+  background-color: #fce4ec;
+  grid-area: item11;
+}
+.grille .item12 {
+  background-color: white;
+  grid-area: item12;
+}
+.grille .item13 {
+  background-color: white;
+  grid-area: item13;
+}
+.grille .item14 {
+  background-color: #fce4ec;
+  grid-area: item14;
+}
+.grille .item15 {
+  background-color: #fce4ec;
+  grid-area: item15;
+}
+.grille .item16 {
+  background-color: white;
+  grid-area: item16;
+}
+.grille .item17 {
+  background-color: white;
+  grid-area: item17;
+}
+.grille .item18 {
+  background-color: #fce4ec;
+  grid-area: item18;
+}
+.grille .item19 {
+  background-color: #fce4ec;
+  grid-area: item19;
+}
+.grille .item20 {
+  background-color: white;
+  grid-area: item20;
+}
+.grille .item21 {
+  background-color: white;
+  grid-area: item21;
+}
+.grille .item22 {
+  background-color: #fce4ec;
+  grid-area: item22;
+}
+.grille .item23 {
+  background-color: #fce4ec;
+  grid-area: item23;
+}
+.grille .item24 {
+  background-color: white;
+  grid-area: item24;
+}
+.grille .img-projets {
+  width: 490px;
+  height: 490px;
+}
+.grille .titre {
+  margin-top: 100px;
+  padding: 16px 0;
+  width: 100%;
+  height: 200px;
+  grid-area: titre;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #f06292;
+  background-color: #fce4ec;
+}
+.grille .titre h1 {
+  font-size: 32px;
+}
+.grille .titre p {
+  font-size: 20px;
+}
+.grille footer {
+  background-color: #fce4ec;
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.grille footer img {
+  width: 50px;
+}
+.grille footer #in {
+  width: 16px;
+}
+.grille footer h3, .grille footer p {
+  padding: 5px;
+  color: black;
+}
+
+.mention {
+  background-color: #f06292;
+  text-align: center;
+  font-style: italic;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav.animate {
+  top: -110px;
+}
+
+.nav.sticky {
+  top: 0;
+  z-index: 990;
+}
+
+/*# sourceMappingURL=projects.css.map */
