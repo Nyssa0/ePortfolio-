@@ -13,7 +13,11 @@ body {
 
 section {
   background-color: #fce4ec;
-  height: 10000px;
+}
+@media screen and (max-width: 900px) {
+  section {
+    overflow-x: hidden;
+  }
 }
 
 .grille {
@@ -23,9 +27,23 @@ section {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(13, 1fr) 0.25fr;
-  gap: 2%;
+  grid-template-rows: 375px repeat(12, 500px) 200px;
   grid-template-areas: "titre titre" "item1 item2" "item3 item4" "item5 item6" "item7 item8" "item9 item10" "item11 item12" "item13 item14" "item15 item16" "item17 item18" "item19 item20" "item21 item22" "item23 item24" "footer footer";
+}
+@media screen and (max-width: 650px) {
+  .grille {
+    grid-template-rows: 375px repeat(12, 325px) 200px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille {
+    grid-template-rows: 375px repeat(12, 257.5px) 200px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille {
+    grid-template-rows: 375px repeat(12, 190px) 200px;
+  }
 }
 .grille .nav {
   position: fixed;
@@ -75,13 +93,16 @@ section {
   height: 0.3rem;
   border-radius: 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: 50%;
   bottom: 0.8rem;
   background-color: #f06292;
-  transition: width 200ms ease-in;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 250ms;
 }
 .grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
-  width: 80%;
+  width: 40%;
+  transform: translateX(-50%) scaleX(1);
 }
 .grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
   opacity: 1;
@@ -119,14 +140,93 @@ section {
   justify-content: center;
   flex-direction: column;
 }
+@media screen and (max-width: 650px) {
+  .grille h2 {
+    font-size: 22px;
+  }
+  .grille p, .grille a {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille h2 {
+    font-size: 20px;
+  }
+  .grille p, .grille a {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille h2 {
+    font-size: 16px;
+  }
+  .grille p, .grille a {
+    font-size: 9px;
+  }
+}
 .grille h2, .grille p {
   color: #f06292;
   padding: 30px 30px 30px 30px;
 }
+@media screen and (max-width: 900px) {
+  .grille h2, .grille p {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .grille h2, .grille p {
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .grille h2, .grille p {
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille h2, .grille p {
+    padding: 2px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille h2, .grille p {
+    padding: 0;
+  }
+}
 .grille .item {
   text-align: center;
-  height: 490px;
-  width: 490px;
+  height: 500px;
+  width: 500px;
+}
+@media screen and (max-width: 900px) {
+  .grille .item {
+    height: 450px;
+    width: 450px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .grille .item {
+    height: 420px;
+    width: 420px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .grille .item {
+    height: 325px;
+    width: 325px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille .item {
+    height: 257.5px;
+    width: 257.5px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .item {
+    height: 190px;
+    width: 190px;
+  }
 }
 .grille .item a {
   color: #f06292;
@@ -243,6 +343,36 @@ section {
   width: 490px;
   height: 490px;
 }
+@media screen and (max-width: 900px) {
+  .grille .img-projets {
+    height: 450px;
+    width: 450px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .grille .img-projets {
+    height: 420px;
+    width: 420px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .grille .img-projets {
+    height: 325px;
+    width: 325px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille .img-projets {
+    height: 257.5px;
+    width: 257.5px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .img-projets {
+    height: 190px;
+    width: 190px;
+  }
+}
 .grille .titre {
   margin-top: 100px;
   padding: 16px 0;
@@ -260,8 +390,28 @@ section {
 .grille .titre h1 {
   font-size: 32px;
 }
+@media screen and (max-width: 515px) {
+  .grille .titre h1 {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .titre h1 {
+    font-size: 28px;
+  }
+}
 .grille .titre p {
   font-size: 20px;
+}
+@media screen and (max-width: 515px) {
+  .grille .titre p {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .titre p {
+    font-size: 16px;
+  }
 }
 .grille footer {
   background-color: #fce4ec;

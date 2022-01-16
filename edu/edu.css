@@ -26,6 +26,16 @@ section {
   grid-template-rows: 1fr 2fr 0.25fr;
   grid-template-areas: "titre" "table" "footer";
 }
+@media screen and (max-width: 515px) {
+  .grille {
+    grid-template-rows: 300px 1200px 200px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille {
+    grid-template-rows: 300px 1400px 200px;
+  }
+}
 .grille .nav {
   position: fixed;
   box-shadow: 0 0 16px #fce4ec;
@@ -74,13 +84,16 @@ section {
   height: 0.3rem;
   border-radius: 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: 50%;
   bottom: 0.8rem;
   background-color: #f06292;
-  transition: width 200ms ease-in;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 250ms;
 }
 .grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
-  width: 80%;
+  width: 40%;
+  transform: translateX(-50%) scaleX(1);
 }
 .grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
   opacity: 1;
@@ -162,6 +175,17 @@ section {
   z-index: 990;
 }
 
+@media screen and (max-width: 380px) {
+  .table {
+    width: 380px;
+  }
+  .table table {
+    font-size: 15px;
+  }
+  .table table th, .table table td {
+    padding: 6px;
+  }
+}
 table {
   border-radius: 0.5rem;
   padding: 5px;

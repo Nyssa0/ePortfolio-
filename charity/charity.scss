@@ -1,3 +1,5 @@
+@import "/Applications/MAMP/htdocs/Portfolio/_mixins.scss";
+
 /*   color variables */
 $clr-primary: #f06292;
 $clr-primary-hover: #fce4ec;
@@ -30,6 +32,9 @@ section {
   background-color: $clr-primary-hover;
   height: 100%;
 
+  @include ml{
+    overflow-x: hidden;
+  }
 }
 
 .grille {
@@ -98,15 +103,19 @@ section {
           height: 0.3rem;
           border-radius: $radius;
           position: absolute;
-          left: 1rem;
+          left: 50%;
           bottom: 0.8rem;
           background-color: $clr-primary;
-          transition: width 200ms ease-in;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: 50% 50%;
+          transition: transform 250ms;
+
         }
 
         &:hover::after,
         &:focus::after {
-          width: 80%;
+          width: 40%;
+          transform: translateX(-50%) scaleX(1);
         }
 
         &:hover ul,
@@ -181,6 +190,13 @@ section {
   color: $clr-primary;
   font-size: 32px;
   background-color: $clr-primary-hover;
+  text-align: center;
+  @include sm{
+    font-size: 28px;
+  }
+  @include s{
+    font-size: 26px;
+  }
 
 }
 
@@ -325,7 +341,7 @@ table {
 
 @media (max-width: 900px){
   .slider{
-    width: 100%;
+    width: 96%;
   }
 
   .slider .slide .info{
@@ -333,6 +349,18 @@ table {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@include sl{
+  .slider{
+    width: 94%;
+  }
+}
+
+@include sm{
+  .slider{
+    width: 93%;
   }
 }
 
@@ -344,5 +372,11 @@ table {
 
   .slider .slide .info p{
     font-size: 0.9em;
+  }
+}
+
+@include s{
+  .slider{
+    width: 90%;
   }
 }

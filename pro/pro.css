@@ -74,13 +74,16 @@ section {
   height: 0.3rem;
   border-radius: 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: 50%;
   bottom: 0.8rem;
   background-color: #f06292;
-  transition: width 200ms ease-in;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 250ms;
 }
 .grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
-  width: 80%;
+  width: 40%;
+  transform: translateX(-50%) scaleX(1);
 }
 .grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
   opacity: 1;

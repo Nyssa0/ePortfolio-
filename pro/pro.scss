@@ -98,15 +98,19 @@ section {
           height: 0.3rem;
           border-radius: $radius;
           position: absolute;
-          left: 1rem;
+          left: 50%;
           bottom: 0.8rem;
           background-color: $clr-primary;
-          transition: width 200ms ease-in;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: 50% 50%;
+          transition: transform 250ms;
+
         }
 
         &:hover::after,
         &:focus::after {
-          width: 80%;
+          width: 40%;
+          transform: translateX(-50%) scaleX(1);
         }
 
         &:hover ul,

@@ -1,0 +1,71 @@
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+$xl : 1650px;
+
+@mixin xl {
+	@media screen and (max-width: $xl) {
+		@content
+	}
+}
+
+$l : 1250px;
+
+@mixin l {
+	@media screen and (max-width: $l) {
+		@content
+	}
+}
+
+$mxl : 1090px;
+
+@mixin mxl {
+	@media screen and (max-width: $mxl) {
+		@content
+	}
+}
+
+$ml : 900px;
+
+@mixin ml {
+	@media screen and (max-width: $ml) {
+		@content
+	}
+}
+
+$m : 840px;
+
+@mixin m {
+	@media screen and (max-width: $m) {
+		@content
+	}
+}
+
+$sl : 650px;
+
+@mixin sl {
+	@media screen and (max-width: $sl) {
+		@content
+	}
+}
+
+$sm : 515px;
+
+@mixin sm {
+	@media screen and (max-width: $sm) {
+		@content
+	}
+}
+
+$s : 380px;
+
+@mixin s {
+	@media screen and (max-width: $s) {
+		@content
+	}
+}
+

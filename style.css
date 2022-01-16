@@ -26,6 +26,24 @@ section {
   grid-template-rows: repeat(6, 1fr) 0.25fr;
   grid-template-areas: "banner" "edu" "projects" "pro" "charity" "interest" "footer";
 }
+@media screen and (max-width: 650px) {
+  .grille {
+    grid-template-rows: 600px repeat(5, 900px) 200px;
+    overflow-x: hidden;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille {
+    grid-template-rows: 500px repeat(5, 900px) 200px;
+    grid-template-columns: 515px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille {
+    grid-template-rows: 500px repeat(5, 800px) 200px;
+    grid-template-columns: 380px;
+  }
+}
 .grille .nav {
   position: fixed;
   box-shadow: 0 0 16px #fce4ec;
@@ -74,13 +92,16 @@ section {
   height: 0.3rem;
   border-radius: 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: 50%;
   bottom: 0.8rem;
   background-color: #f06292;
-  transition: width 200ms ease-in;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 250ms;
 }
 .grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
-  width: 80%;
+  width: 40%;
+  transform: translateX(-50%) scaleX(1);
 }
 .grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
   opacity: 1;
@@ -114,6 +135,11 @@ section {
 .grille .item {
   height: 100%;
 }
+@media screen and (max-width: 650px) {
+  .grille .item {
+    margin: 20px auto;
+  }
+}
 .grille .banner {
   background-color: white;
   grid-area: banner;
@@ -124,6 +150,11 @@ section {
   width: 100%;
   height: auto;
 }
+@media screen and (max-width: 515px) {
+  .grille .banner img {
+    width: 515px;
+  }
+}
 .grille .banner .text-wrapper {
   width: 100%;
   margin-top: -45%;
@@ -132,10 +163,32 @@ section {
   justify-content: center;
   flex-direction: column;
 }
+@media screen and (max-width: 650px) {
+  .grille .banner .text-wrapper {
+    width: 650px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille .banner .text-wrapper {
+    width: 515px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .banner .text-wrapper {
+    position: absolute;
+    top: 300px;
+    width: 380px;
+  }
+}
 .grille .banner .text-wrapper h1 {
   text-align: center;
   color: #f06292;
   font-size: 32px;
+}
+@media screen and (max-width: 515px) {
+  .grille .banner .text-wrapper h1 {
+    font-size: 28px;
+  }
 }
 .grille .banner .text-wrapper h2 {
   text-align: center;
@@ -152,6 +205,46 @@ section {
 }
 .grille .edu .left {
   background: url(images/edu.jpg) no-repeat center/cover;
+}
+@media screen and (max-width: 650px) {
+  .grille .edu .container, .grille .pro .container, .grille .interest .container {
+    width: 640px !important;
+    margin: 0 auto;
+  }
+  .grille .edu .container .left, .grille .pro .container .left, .grille .interest .container .left {
+    width: 500px;
+    height: 500px;
+  }
+  .grille .edu .container .right, .grille .pro .container .right, .grille .interest .container .right {
+    width: 375px;
+    height: 375px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille .edu .container, .grille .pro .container, .grille .interest .container {
+    width: 515px !important;
+  }
+  .grille .edu .container .left, .grille .pro .container .left, .grille .interest .container .left {
+    width: 450px;
+    height: 450px;
+  }
+  .grille .edu .container .right, .grille .pro .container .right, .grille .interest .container .right {
+    width: 350px;
+    height: 350px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .edu .container, .grille .pro .container, .grille .interest .container {
+    width: 380px !important;
+  }
+  .grille .edu .container .left, .grille .pro .container .left, .grille .interest .container .left {
+    width: 345px;
+    height: 345px;
+  }
+  .grille .edu .container .right, .grille .pro .container .right, .grille .interest .container .right {
+    width: 260px;
+    height: 260px;
+  }
 }
 .grille .edu .container, .grille .pro .container, .grille .interest .container {
   width: 90%;
@@ -201,7 +294,6 @@ section {
   .grille .edu .container, .grille .pro .container, .grille .interest .container {
     flex-direction: column;
     width: 100%;
-    margin: 0 20px;
   }
   .grille .edu .left, .grille .pro .left, .grille .interest .left {
     width: 100%;
@@ -225,6 +317,51 @@ section {
 }
 .grille .projects .right {
   background: url(images/projet.jpg) no-repeat center/cover;
+}
+@media screen and (max-width: 650px) {
+  .grille .projects .container, .grille .charity .container {
+    width: 640px !important;
+    position: relative;
+  }
+  .grille .projects .container .left, .grille .charity .container .left {
+    position: absolute;
+    top: 500px;
+    width: 375px;
+    height: 375px;
+  }
+  .grille .projects .container .right, .grille .charity .container .right {
+    position: absolute;
+    top: 0;
+    width: 500px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille .projects .container, .grille .charity .container {
+    width: 515px !important;
+  }
+  .grille .projects .container .left, .grille .charity .container .left {
+    width: 350px;
+    height: 350px;
+  }
+  .grille .projects .container .right, .grille .charity .container .right {
+    width: 450px;
+    height: 450px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .projects .container, .grille .charity .container {
+    width: 380px !important;
+  }
+  .grille .projects .container .left, .grille .charity .container .left {
+    top: 350px;
+    width: 260px;
+    height: 260px;
+  }
+  .grille .projects .container .right, .grille .charity .container .right {
+    width: 345px;
+    height: 345px;
+  }
 }
 .grille .projects .container, .grille .charity .container {
   width: 90%;
@@ -276,7 +413,6 @@ section {
   .grille .projects .container, .grille .charity .container {
     flex-direction: column;
     width: 100%;
-    margin: 0 20px;
   }
   .grille .projects .right, .grille .charity .right {
     width: 100%;

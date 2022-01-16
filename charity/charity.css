@@ -15,6 +15,11 @@ section {
   background-color: #fce4ec;
   height: 100%;
 }
+@media screen and (max-width: 900px) {
+  section {
+    overflow-x: hidden;
+  }
+}
 
 .grille {
   max-width: 1000px;
@@ -74,13 +79,16 @@ section {
   height: 0.3rem;
   border-radius: 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: 50%;
   bottom: 0.8rem;
   background-color: #f06292;
-  transition: width 200ms ease-in;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 250ms;
 }
 .grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
-  width: 80%;
+  width: 40%;
+  transform: translateX(-50%) scaleX(1);
 }
 .grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
   opacity: 1;
@@ -142,6 +150,17 @@ section {
   color: #f06292;
   font-size: 32px;
   background-color: #fce4ec;
+  text-align: center;
+}
+@media screen and (max-width: 515px) {
+  .titre {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .titre {
+    font-size: 26px;
+  }
 }
 
 .mention {
@@ -283,7 +302,7 @@ table {
 
 @media (max-width: 900px) {
   .slider {
-    width: 100%;
+    width: 96%;
   }
 
   .slider .slide .info {
@@ -291,6 +310,16 @@ table {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+@media screen and (max-width: 650px) {
+  .slider {
+    width: 94%;
+  }
+}
+@media screen and (max-width: 515px) {
+  .slider {
+    width: 93%;
   }
 }
 @media (max-width: 500px) {
@@ -301,6 +330,11 @@ table {
 
   .slider .slide .info p {
     font-size: 0.9em;
+  }
+}
+@media screen and (max-width: 380px) {
+  .slider {
+    width: 90%;
   }
 }
 

@@ -26,6 +26,16 @@ section {
   grid-template-rows: 1fr 2fr 1fr 1fr 1fr 0.25fr;
   grid-template-areas: "titre" "dev" "etre" "lang" "autres" "footer";
 }
+@media screen and (max-width: 650px) {
+  .grille {
+    grid-template-rows: 1fr 800px 1fr 1fr 1fr 0.25fr;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille {
+    grid-template-rows: 1fr 965px 1fr 1fr 1fr 0.25fr;
+  }
+}
 .grille .nav {
   position: fixed;
   box-shadow: 0 0 16px #fce4ec;
@@ -74,13 +84,16 @@ section {
   height: 0.3rem;
   border-radius: 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: 50%;
   bottom: 0.8rem;
   background-color: #f06292;
-  transition: width 200ms ease-in;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 250ms;
 }
 .grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
-  width: 80%;
+  width: 40%;
+  transform: translateX(-50%) scaleX(1);
 }
 .grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
   opacity: 1;
@@ -131,6 +144,7 @@ section {
 }
 
 .titre {
+  text-align: center;
   margin-top: 100px;
   padding: 16px 0;
   width: 100%;
@@ -148,6 +162,11 @@ section {
 }
 .titre p {
   font-size: 20px;
+}
+@media screen and (max-width: 650px) {
+  .titre p {
+    margin: 0 10px;
+  }
 }
 
 .mention {
@@ -172,6 +191,11 @@ section {
 
 .table-dev {
   grid-area: dev;
+}
+@media screen and (max-width: 380px) {
+  .table-dev {
+    width: 380px;
+  }
 }
 .table-dev h2 {
   margin-top: 16px;
@@ -240,6 +264,11 @@ table th, table td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #fce4ec;
+}
+@media screen and (max-width: 380px) {
+  table th, table td {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (max-width: 768px) {

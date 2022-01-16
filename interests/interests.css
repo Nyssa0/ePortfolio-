@@ -13,7 +13,6 @@ body {
 
 section {
   background-color: #fce4ec;
-  height: 3500px;
 }
 
 .grille {
@@ -26,6 +25,32 @@ section {
   grid-template-rows: repeat(6, 1fr) 0.25fr;
   gap: 2%;
   grid-template-areas: "titre titre" "item1 item2" "item3 item4" "item5 item6" "item7 item8" "item9 item10" "footer footer";
+}
+@media screen and (max-width: 900px) {
+  .grille {
+    gap: 0;
+    grid-template-rows: 365px repeat(5, 450px) 0.25fr;
+  }
+}
+@media screen and (max-width: 840px) {
+  .grille {
+    grid-template-rows: 365px repeat(5, 420px) 0.25fr;
+  }
+}
+@media screen and (max-width: 650px) {
+  .grille {
+    grid-template-rows: 365px repeat(5, 325px) 0.25fr;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille {
+    grid-template-rows: 365px repeat(5, 257.5px) 0.25fr;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille {
+    grid-template-rows: 365px repeat(5, 190px) 0.25fr;
+  }
 }
 .grille .nav {
   position: fixed;
@@ -75,13 +100,16 @@ section {
   height: 0.3rem;
   border-radius: 0.5rem;
   position: absolute;
-  left: 1rem;
+  left: 50%;
   bottom: 0.8rem;
   background-color: #f06292;
-  transition: width 200ms ease-in;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 250ms;
 }
 .grille .nav__listitem:hover::after, .grille .nav__listitem:focus::after {
-  width: 80%;
+  width: 40%;
+  transform: translateX(-50%) scaleX(1);
 }
 .grille .nav__listitem:hover ul, .grille .nav__listitem:focus ul {
   opacity: 1;
@@ -119,14 +147,70 @@ section {
   justify-content: center;
   flex-direction: column;
 }
+@media screen and (max-width: 515px) {
+  .grille h2 {
+    font-size: 22px;
+  }
+  .grille p {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille h2 {
+    font-size: 18px;
+  }
+  .grille p {
+    font-size: 10px;
+  }
+}
 .grille h2, .grille p {
   color: #f06292;
   padding: 30px 30px 30px 30px;
 }
+@media screen and (max-width: 515px) {
+  .grille h2, .grille p {
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille h2, .grille p {
+    padding: 2px;
+  }
+}
 .grille .item {
   text-align: center;
-  height: 490px;
-  width: 490px;
+  height: 500px;
+  width: 500px;
+}
+@media screen and (max-width: 900px) {
+  .grille .item {
+    height: 450px;
+    width: 450px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .grille .item {
+    height: 420px;
+    width: 420px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .grille .item {
+    height: 325px;
+    width: 325px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille .item {
+    height: 257.5px;
+    width: 257.5px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .item {
+    height: 190px;
+    width: 190px;
+  }
 }
 .grille .item a {
   color: #f06292;
@@ -232,10 +316,41 @@ section {
   grid-area: item22;
 }
 .grille .img-interests {
-  width: 490px;
-  height: 490px;
+  width: 500px;
+  height: 500px;
+}
+@media screen and (max-width: 900px) {
+  .grille .img-interests {
+    height: 450px;
+    width: 450px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .grille .img-interests {
+    height: 420px;
+    width: 420px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .grille .img-interests {
+    height: 325px;
+    width: 325px;
+  }
+}
+@media screen and (max-width: 515px) {
+  .grille .img-interests {
+    height: 257.5px;
+    width: 257.5px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .grille .img-interests {
+    height: 190px;
+    width: 190px;
+  }
 }
 .grille .titre {
+  text-align: center;
   margin-top: 100px;
   padding: 16px 0;
   width: 100%;
@@ -251,8 +366,18 @@ section {
 .grille .titre h1 {
   font-size: 32px;
 }
+@media screen and (max-width: 380px) {
+  .grille .titre h1 {
+    font-size: 28px;
+  }
+}
 .grille .titre p {
   font-size: 20px;
+}
+@media screen and (max-width: 380px) {
+  .grille .titre p {
+    font-size: 16px;
+  }
 }
 .grille footer {
   background-color: #fce4ec;

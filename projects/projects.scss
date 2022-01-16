@@ -1,3 +1,5 @@
+@import "/Applications/MAMP/htdocs/Portfolio/_mixins.scss";
+
 /*   color variables */
 $clr-primary: #f06292;
 $clr-primary-hover: #fce4ec;
@@ -28,8 +30,9 @@ body {
 
 section {
   background-color: $clr-primary-hover;
-  height: 10000px;
-
+  @include ml{
+    overflow-x: hidden;
+  }
 }
 
 .grille {
@@ -39,8 +42,7 @@ section {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(13, 1fr) 0.25fr;
-  gap: 2%;
+  grid-template-rows: 375px repeat(12, 500px) 200px;
   grid-template-areas:
             "titre titre"
             "item1 item2"
@@ -56,9 +58,17 @@ section {
             "item21 item22"
             "item23 item24"
             "footer footer"
-
 ;
 
+  @include sl{
+    grid-template-rows: 375px repeat(12, 325px) 200px;
+  }
+  @include sm{
+    grid-template-rows: 375px repeat(12, 257.5px) 200px;
+  }
+  @include s{
+    grid-template-rows: 375px repeat(12, 190px) 200px;
+  }
 
   .nav {
     position: fixed;
@@ -113,15 +123,19 @@ section {
           height: 0.3rem;
           border-radius: $radius;
           position: absolute;
-          left: 1rem;
+          left: 50%;
           bottom: 0.8rem;
           background-color: $clr-primary;
-          transition: width 200ms ease-in;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: 50% 50%;
+          transition: transform 250ms;
+
         }
 
         &:hover::after,
         &:focus::after {
-          width: 80%;
+          width: 40%;
+          transform: translateX(-50%) scaleX(1);
         }
 
         &:hover ul,
@@ -171,15 +185,79 @@ section {
   }
 
 
+  @include sl{
+    h2{
+      font-size: 22px;
+    }
+    p, a{
+      font-size: 14px;
+    }
+  }
+
+  @include sm{
+    h2{
+      font-size: 20px;
+    }
+    p, a{
+      font-size: 12px;
+    }
+  }
+
+  @include s{
+    h2{
+      font-size: 16px;
+    }
+    p, a{
+      font-size: 9px;
+    }
+  }
+
   h2, p{
     color: $clr-primary;
     padding: 30px 30px 30px 30px;
+    @include ml{
+      padding: 20px;
+    }
+    @include m{
+      padding: 10px;
+    }
+    @include sl{
+      padding: 5px;
+    }
+    @include sm{
+      padding: 2px;
+    }
+    @include s{
+      padding: 0;
+    }
+
   }
 
   .item{
     text-align: center;
-    height: 490px;
-    width: 490px;
+    height: 500px;
+    width: 500px;
+
+    @include ml{
+      height: 450px;
+      width: 450px;
+    }
+    @include m{
+      height: 420px;
+      width: 420px;
+    }
+    @include sl{
+      height: 325px;
+      width: 325px;
+    }
+    @include sm{
+      height: 257.5px;
+      width: 257.5px;
+    }
+    @include s{
+      height: 190px;
+      width: 190px;
+    }
 
     a{
       color: $clr-primary;
@@ -188,6 +266,7 @@ section {
       padding: 5px 10px;
       border-radius: $radius;
       display: inline-block;
+
       &:hover {
         background-color:$clr-primary;
         color: $clr-primary-hover;
@@ -304,6 +383,26 @@ section {
   .img-projets{
     width: 490px;
     height: 490px;
+    @include ml{
+      height: 450px;
+      width: 450px;
+    }
+    @include m{
+      height: 420px;
+      width: 420px;
+    }
+    @include sl{
+      height: 325px;
+      width: 325px;
+    }
+    @include sm{
+      height: 257.5px;
+      width: 257.5px;
+    }
+    @include s{
+      height: 190px;
+      width: 190px;
+    }
   }
 
   .titre{
@@ -322,10 +421,22 @@ section {
 
     h1{
       font-size: 32px;
+      @include sm{
+        font-size: 30px;
+      }
+      @include s{
+        font-size: 28px;
+      }
     }
 
     p{
       font-size: 20px;
+      @include sm{
+        font-size: 18px;
+      }
+      @include s{
+        font-size: 16px;
+      }
     }
   }
 

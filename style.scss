@@ -1,3 +1,5 @@
+@import "mixins";
+
 /*   color variables */
 $clr-primary: #f06292;
 $clr-primary-hover: #fce4ec;
@@ -49,6 +51,18 @@ section {
           "interest"
           "footer";
 
+  @include sl{
+    grid-template-rows: 600px repeat(5, 900px) 200px;
+    overflow-x: hidden;
+  }
+  @include sm{
+    grid-template-rows: 500px repeat(5, 900px) 200px;
+    grid-template-columns: 515px;
+  }
+  @include s{
+    grid-template-rows: 500px repeat(5, 800px) 200px;
+    grid-template-columns: 380px;
+  }
 
   .nav {
     position: fixed;
@@ -103,15 +117,19 @@ section {
           height: 0.3rem;
           border-radius: $radius;
           position: absolute;
-          left: 1rem;
+          left: 50%;
           bottom: 0.8rem;
           background-color: $clr-primary;
-          transition: width 200ms ease-in;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: 50% 50%;
+          transition: transform 250ms;
+
         }
 
         &:hover::after,
         &:focus::after {
-          width: 80%;
+          width: 40%;
+          transform: translateX(-50%) scaleX(1);
         }
 
         &:hover ul,
@@ -154,6 +172,9 @@ section {
 
   .item {
     height: 100%;
+    @include sl{
+      margin: 20px auto;
+    }
   }
 
   .banner {
@@ -165,6 +186,9 @@ section {
     img{
       width: 100%;
       height: auto;
+      @include sm{
+        width: 515px;
+      }
     }
 
     .text-wrapper{
@@ -175,10 +199,25 @@ section {
       justify-content: center;
       flex-direction: column;
 
+      @include sl{
+        width: 650px;
+      }
+      @include sm{
+        width: 515px;
+      }
+      @include s{
+        position: absolute;
+        top: 300px;
+        width: 380px;
+      }
+
       h1{
         text-align: center;
         color: $clr-primary;
         font-size: 32px;
+        @include sm{
+          font-size: 28px;
+        }
       }
 
       h2{
@@ -203,6 +242,47 @@ section {
   }
 
   .edu, .pro, .interest{
+    @include sl{
+      .container{
+        width: 640px !important;
+        margin: 0 auto;
+        .left{
+          width: 500px;
+          height: 500px;
+        }
+        .right{
+          width: 375px;
+          height: 375px;
+        }
+      }
+    }
+    @include sm{
+      .container{
+        width: 515px !important;
+        .left{
+          width: 450px;
+          height: 450px;
+        }
+        .right{
+          width: 350px;
+          height: 350px;
+        }
+      }
+    }
+
+    @include s{
+      .container{
+        width: 380px !important;
+        .left{
+          width: 345px;
+          height: 345px;
+        }
+        .right{
+          width: 260px;
+          height: 260px;
+        }
+      }
+    }
     .container{
       width: 90%;
       max-width: 1000px;
@@ -258,7 +338,6 @@ section {
       .container{
         flex-direction: column;
         width: 100%;
-        margin: 0 20px;
       }
       .left{
         width: 100%;
@@ -289,6 +368,58 @@ section {
   }
 
   .projects, .charity{
+    @include sl{
+      .container{
+        width: 640px !important;
+        position: relative;
+        .left{
+          position: absolute;
+          top: 500px;
+          width: 375px;
+          height: 375px;
+        }
+        .right{
+          position: absolute;
+          top: 0;
+          width: 500px;
+          height: 500px;
+
+        }
+      }
+    }
+    @include sm{
+      .container{
+        width: 515px !important;
+        .left{
+          width: 350px;
+          height: 350px;
+        }
+        .right{
+          width: 450px;
+          height: 450px;
+
+        }
+      }
+    }
+
+    @include s{
+      .container{
+        width: 380px !important;
+        .left{
+          top: 350px;
+          width: 260px;
+          height: 260px;
+        }
+        .right{
+          width: 345px;
+          height: 345px;
+
+        }
+      }
+    }
+
+
+
     .container{
       width: 90%;
       max-width: 1000px;
@@ -347,7 +478,6 @@ section {
       .container{
         flex-direction: column;
         width: 100%;
-        margin: 0 20px;
       }
       .right{
         width: 100%;

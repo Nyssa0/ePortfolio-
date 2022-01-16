@@ -1,3 +1,5 @@
+@import "/Applications/MAMP/htdocs/Portfolio/_mixins.scss";
+
 /*   color variables */
 $clr-primary: #f06292;
 $clr-primary-hover: #fce4ec;
@@ -47,6 +49,12 @@ section {
     "lang"
     "autres"
     "footer";
+  @include sl{
+    grid-template-rows: 1fr 800px 1fr 1fr 1fr 0.25fr;
+  }
+  @include sm{
+    grid-template-rows: 1fr 965px 1fr 1fr 1fr 0.25fr;
+  }
 
   .nav {
     position: fixed;
@@ -101,15 +109,19 @@ section {
           height: 0.3rem;
           border-radius: $radius;
           position: absolute;
-          left: 1rem;
+          left: 50%;
           bottom: 0.8rem;
           background-color: $clr-primary;
-          transition: width 200ms ease-in;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: 50% 50%;
+          transition: transform 250ms;
+
         }
 
         &:hover::after,
         &:focus::after {
-          width: 80%;
+          width: 40%;
+          transform: translateX(-50%) scaleX(1);
         }
 
         &:hover ul,
@@ -173,6 +185,7 @@ section {
 }
 
 .titre{
+  text-align: center;
   margin-top: 100px;
   padding: 16px 0;
   width: 100%;
@@ -191,6 +204,9 @@ section {
 
   p{
     font-size: 20px;
+    @include sl{
+      margin: 0 10px;
+    }
   }
 }
 
@@ -216,6 +232,9 @@ section {
 
 .table-dev{
   grid-area: dev;
+  @include s{
+    width: 380px;
+  }
   h2{
     margin-top: 16px;
     color: $clr-primary;
@@ -279,6 +298,7 @@ table{
       background-color: $clr-primary;
       transform: scale(1.02);
       box-shadow: 2px 2px 12px rgba(0,0,0,0.2), -1px -1px 8px rgba(0,0,0,0.2);
+      
 
     }
   }
@@ -288,6 +308,10 @@ table{
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid $clr-primary-hover;
+
+    @include s{
+      font-size: 14px;
+    }
   }
 
 }

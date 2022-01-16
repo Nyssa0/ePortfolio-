@@ -1,3 +1,5 @@
+@import "/Applications/MAMP/htdocs/Portfolio/_mixins.scss";
+
 /*   color variables */
 $clr-primary: #f06292;
 $clr-primary-hover: #fce4ec;
@@ -28,7 +30,6 @@ body {
 
 section {
   background-color: $clr-primary-hover;
-  height: 3500px;
 
 }
 
@@ -41,6 +42,22 @@ section {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(6, 1fr) 0.25fr;
   gap: 2%;
+  @include ml{
+    gap: 0;
+    grid-template-rows: 365px repeat(5, 450px) 0.25fr;
+  }
+  @include m{
+    grid-template-rows: 365px repeat(5, 420px) 0.25fr;
+  }
+  @include sl{
+    grid-template-rows: 365px repeat(5, 325px) 0.25fr;
+  }
+  @include sm{
+    grid-template-rows: 365px repeat(5, 257.5px) 0.25fr;
+  }
+  @include s{
+    grid-template-rows: 365px repeat(5, 190px) 0.25fr;
+  }
   grid-template-areas:
             "titre titre"
             "item1 item2"
@@ -49,7 +66,6 @@ section {
             "item7 item8"
             "item9 item10"
             "footer footer"
-
 ;
 
 
@@ -106,15 +122,19 @@ section {
           height: 0.3rem;
           border-radius: $radius;
           position: absolute;
-          left: 1rem;
+          left: 50%;
           bottom: 0.8rem;
           background-color: $clr-primary;
-          transition: width 200ms ease-in;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: 50% 50%;
+          transition: transform 250ms;
+
         }
 
         &:hover::after,
         &:focus::after {
-          width: 80%;
+          width: 40%;
+          transform: translateX(-50%) scaleX(1);
         }
 
         &:hover ul,
@@ -163,16 +183,60 @@ section {
     flex-direction: column;
   }
 
+  @include sm{
+    h2{
+      font-size: 22px;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
+  @include sm{
+    h2{
+      font-size: 18px;
+    }
+    p{
+      font-size: 10px;
+    }
+  }
 
   h2, p{
     color: $clr-primary;
     padding: 30px 30px 30px 30px;
+    @include sm{
+      padding: 5px;
+    }
+    @include s{
+      padding: 2px;
+    }
   }
 
   .item{
     text-align: center;
-    height: 490px;
-    width: 490px;
+    height: 500px;
+    width: 500px;
+
+    @include ml{
+      height: 450px;
+      width: 450px;
+    }
+    @include m{
+      height: 420px;
+      width: 420px;
+    }
+    @include sl{
+      height: 325px;
+      width: 325px;
+    }
+    @include sm{
+      height: 257.5px;
+      width: 257.5px;
+    }
+    @include s{
+      height: 190px;
+      width: 190px;
+    }
+
 
     a{
       color: $clr-primary;
@@ -286,11 +350,32 @@ section {
   }
 
   .img-interests{
-    width: 490px;
-    height: 490px;
+    width: 500px;
+    height: 500px;
+    @include ml{
+      height: 450px;
+      width: 450px;
+    }
+    @include m{
+      height: 420px;
+      width: 420px;
+    }
+    @include sl{
+      height: 325px;
+      width: 325px;
+    }
+    @include sm{
+      height: 257.5px;
+      width: 257.5px;
+    }
+    @include s{
+      height: 190px;
+      width: 190px;
+    }
   }
 
   .titre{
+    text-align: center;
     margin-top: 100px;
     padding: 16px 0;
     width: 100%;
@@ -305,10 +390,16 @@ section {
 
     h1{
       font-size: 32px;
+      @include s{
+        font-size: 28px;
+      }
     }
 
     p{
       font-size: 20px;
+      @include s{
+        font-size: 16px;
+      }
     }
   }
 

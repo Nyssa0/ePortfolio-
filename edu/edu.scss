@@ -1,3 +1,5 @@
+@import "/Applications/MAMP/htdocs/Portfolio/_mixins.scss";
+
 /*   color variables */
 $clr-primary: #f06292;
 $clr-primary-hover: #fce4ec;
@@ -44,6 +46,14 @@ section {
     "titre"
     "table"
     "footer";
+
+  @include sm{
+    grid-template-rows: 300px 1200px 200px;
+  }
+
+  @include s{
+    grid-template-rows: 300px 1400px 200px;
+  }
 
   .nav {
     position: fixed;
@@ -98,15 +108,19 @@ section {
           height: 0.3rem;
           border-radius: $radius;
           position: absolute;
-          left: 1rem;
+          left: 50%;
           bottom: 0.8rem;
           background-color: $clr-primary;
-          transition: width 200ms ease-in;
+          transform: translateX(-50%) scaleX(0);
+          transform-origin: 50% 50%;
+          transition: transform 250ms;
+
         }
 
         &:hover::after,
         &:focus::after {
-          width: 80%;
+          width: 40%;
+          transform: translateX(-50%) scaleX(1);
         }
 
         &:hover ul,
@@ -202,6 +216,17 @@ section {
   z-index: 990;
 }
 
+@include s{
+  .table{
+    width: 380px;
+    table{
+      font-size: 15px;
+      th, td{
+        padding: 6px;
+      }
+    }
+  }
+}
 table{
   border-radius: $radius;
   padding: 5px;
